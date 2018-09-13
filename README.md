@@ -6,7 +6,7 @@ Emulador desenvolvido para uma Arquitetura Toy, com as seguintes configurações
 * 11 registradores (r0-r10), sendo r0 sempre com o valor 0. Também existe um registrador PC.
 * Memória separada em código e dados: Dados (1024 palavras de 32 bits) e Código (1024 instruções)
 
-## Instruções
+## Instructions
 
 * ADD rx, ry        // rx = rx + ry
 * SUB rx, ry
