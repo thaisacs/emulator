@@ -78,8 +78,8 @@ Decoder::Inst* Decoder::getCode(const std::string i) {
         }
         if(i[index] == '-') {
             neg = true;
+            index++;
         }
-        index++;
         buff = 0;
         while(i[index] >= 48 && i[index] <= 57) {
             buff = buff*10 + i[index] - 48;
@@ -101,8 +101,8 @@ Decoder::Inst* Decoder::getCode(const std::string i) {
         }
         if(i[index] == '-') {
             neg = true;
+            index++;
         }
-        index++;
         buff = 0;
         while(i[index] >= 48 && i[index] <= 57) {
             buff = buff*10 + i[index] - 48;
@@ -139,8 +139,8 @@ Decoder::Inst* Decoder::getCode(const std::string i) {
         }
         if(i[index] == '-') {
             neg = true;
+            index++;
         }
-        index++;
         buff = 0;
         while(i[index] >= 48 && i[index] <= 57) {
             buff = buff*10 + i[index] - 48;
@@ -151,7 +151,7 @@ Decoder::Inst* Decoder::getCode(const std::string i) {
             neg = false;
         }
         current->Imm = buff;
-        current->Type = Decoder::InstType::BRZ;
+        current->Type = Decoder::InstType::BLZ;
     }else if(op == "MOV") {
         index++; //consome r
         buff = i[index] - 48;

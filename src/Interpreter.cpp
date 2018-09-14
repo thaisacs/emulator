@@ -32,13 +32,13 @@ void Interpreter::MUL(int reg1, int reg2) {
 
 void Interpreter::BRZ(int reg, int d) {
     if(M.getRValue(reg) == 0) {
-        M.setRValue(PC, M.getRValue(PC)+d);       
+        M.setRValue(PC, M.getRValue(PC)+d-1);       
     }
 }
 
 void Interpreter::BRNZ(int reg, int d) {
     if(M.getRValue(reg) != 0) {
-        M.setRValue(PC, M.getRValue(PC)+d);       
+        M.setRValue(PC, M.getRValue(PC)+d-1); 
     }
 }
 
@@ -50,7 +50,7 @@ void Interpreter::IBRZ(int reg, int a) {
 
 void Interpreter::BLZ(int reg, int d) {
     if(M.getRValue(reg) < 0) {
-        M.setRValue(PC, M.getRValue(PC)+d);       
+        M.setRValue(PC, M.getRValue(PC)+d-1);       
     }
 }
 
@@ -102,10 +102,10 @@ bool Interpreter::execute(Decoder::Inst *i) {
             BRNZ(i->A, i->Imm);
             break;
         case Decoder::InstType::IBRZ:
-            BRNZ(i->A, i->Addrs);
+            IBRZ(i->A, i->Addrs);
             break;
         case Decoder::InstType::BLZ:
-            BRNZ(i->A, i->Imm);
+            BLZ(i->A, i->Imm);
             break;
         case Decoder::InstType::MOV:
             MOV(i->A, i->B);
@@ -138,5 +138,5 @@ void Interpreter::executeAll() {
         cont = execute(i);
     }
     //M.printCodeMem();
-    M.printDataMem();
+    //M.printDataMem();
 }

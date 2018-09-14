@@ -1,5 +1,10 @@
-LOADI r1, 100
-STOREM r1, 0
-LOADM r2, 0
-STOREM r2, 1
+LOADI r1, 0
+LOADI r3, 1
+LOADI r2, 100
+MOV r4, r2
+ADD r1, r4
+SUB r4, r3
+BRNZ r4, -2
+SUB r2, r3
+BRNZ r2, -5
 EXIT
