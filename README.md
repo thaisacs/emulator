@@ -1,6 +1,6 @@
 # Emulator
 
-Emulador desenvolvido para uma Arquitetura Toy, com as seguintes configurações:
+Emulador desenvolvido na II SECOMP (UEM) - 10 a 14 de setembro 2018. Utilizou-se de uma Arquitetura Toy, com as seguintes configurações:
 
 
 * 11 registradores (r0-r10), sendo r0 sempre com o valor 0. Também existe um registrador PC.
